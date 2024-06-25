@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended: false}));
 //initalize cors
 // here we are definig an object with the property origin which will have value of frontend url to which we want to have the permission to make requests to the backend
 app.use(cors({
-    origin: ["https://shopito-ecommerce-app.netlify.app"],
+    origin: ["http://localhost:3000","https://shopito-ecommerce-app.netlify.app"],
     credentials: true       // we set it to true as we want to be able to send token from the backend to the frontend when the user makes request
 }))
 

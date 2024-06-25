@@ -153,6 +153,7 @@ const getLoginStatus  = asyncHandler(async(req,res) => {
 
 // update user
 const updateUser = asyncHandler(async(req,res) => {
+    console.log(req.user)
     const user = await User.findById(req.user._id);
     if(user) {
         // so we destructured the property of the user and updated them by the values we recieved in request
