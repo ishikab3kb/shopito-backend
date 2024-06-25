@@ -91,8 +91,8 @@ const loginUser = asyncHandler(async (req,res) => {
             httpOnly: true,
             expires: new Date(Date.now() + 1000 * 86400),
             // when you are in development mode you need to comment this two properties as yuou may have some errors logging in as user when you set secure to tru
-            secure: true,
-            sameSite: none,
+            // secure: true,
+            // sameSite: none,
         });
 
         // send user data
@@ -141,7 +141,7 @@ const getLoginStatus  = asyncHandler(async(req,res) => {
     if(!token){
         return res.json(false);
     }
-    // verify token. we also have the chcek that the token hasn't expired. we verify user token using JWT_SECRET
+    // verify token. we also have the check that the token hasn't expired. we verify user token using JWT_SECRET
     const verified = jwt.verify(token, process.env.JWT_SECRET)
     if(verified) {
         res.json(true);
