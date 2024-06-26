@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async(req,res) => {
             expires: new Date(Date.now() + 1000 * 86400),
             // when you are in development mode you need to comment this two properties as yuou may have some errors logging in as user when you set secure to tru
             // secure: true,
-            // sameSite: none,
+            sameSite: none,
         });
         res.status(201).json({
             _id, name,email,role, token
@@ -92,7 +92,7 @@ const loginUser = asyncHandler(async (req,res) => {
             expires: new Date(Date.now() + 1000 * 86400),
             // when you are in development mode you need to comment this two properties as yuou may have some errors logging in as user when you set secure to tru
             // secure: true,
-            // sameSite: none,
+            sameSite: none,
         });
 
         // send user data
@@ -114,7 +114,7 @@ const logout = asyncHandler(async(req,res) => {
         expires: new Date(0),
         // when you are in development mode you need to comment this two properties as yuou may have some errors logging in as user when you set secure to tru
         // secure: true,
-        // sameSite: none,
+        sameSite: none,
     });
     return res.status(200).json({message: "Succesfully Logged Out"})
     // res.send("logout")
